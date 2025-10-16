@@ -3,7 +3,7 @@
 import ResponsiveHeader from '@/components/ResponsiveHeader'
 // import React, { useCallback, useEffect, useRef } from 'react'
 import { testimonials } from '@/components/constant'
-import { Icon } from '@iconify/react/dist/iconify.js'
+import { Icon } from '@iconify/react'
 import Image from 'next/image'
 import useEmblaCarousel from 'embla-carousel-react'
 

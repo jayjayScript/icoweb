@@ -5,7 +5,7 @@ import study1 from '@/assets/case-studies/study1.jpg'
 import study2 from '@/assets/case-studies/study2.png'
 import Image from 'next/image'
 import Link from 'next/link';
-import { Icon } from '@iconify/react/dist/iconify.js';
+import { Icon } from '@iconify/react'
 
 const PortfolioCarousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({

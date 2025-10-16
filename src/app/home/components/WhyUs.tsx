@@ -1,6 +1,6 @@
 import ResponsiveHeader from '@/components/ResponsiveHeader'
 import { features } from '@/components/constant'
-import { Icon } from '@iconify/react/dist/iconify.js'
+import { Icon } from '@iconify/react'
 import React from 'react'
 
 const WhyUs = () => {

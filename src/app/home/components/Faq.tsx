@@ -1,6 +1,6 @@
 import ResponsiveHeader from '@/components/ResponsiveHeader'
 import React from 'react'
-import { Icon } from '@iconify/react/dist/iconify.js'
+import { Icon } from '@iconify/react'
 import FAQAccordion from './FAQAccordion'
 
 const Faq = () => {

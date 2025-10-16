@@ -3,7 +3,7 @@ import React from 'react'
 import curvyLine from '@/assets/about/Vector 4.png';
 import Image from 'next/image';
 import { processSteps } from '@/components/constant';
-import { Icon } from '@iconify/react/dist/iconify.js';
+import { Icon } from '@iconify/react'
 
 const HowWeWork = () => {
     return (

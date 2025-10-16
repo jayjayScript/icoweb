@@ -2,7 +2,7 @@ import ResponsiveHeader from '@/components/ResponsiveHeader'
 import React from 'react'
 import { theTeam } from '@/components/constant'
 import Image from 'next/image'
-import { Icon } from '@iconify/react/dist/iconify.js'
+import { Icon } from '@iconify/react'
 import Link from 'next/link'
 import ConnectionCard from '@/app/home/components/ConnectionCard'
 
