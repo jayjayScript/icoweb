@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+:root {
+  --step-x: 7%;
+  --step-y: 80px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --step-x: 10%;
+    --step-y: 80px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --step-x: 19%;
+    --step-y: 90px;
+  }
+}
+
+@theme {
+  --background-grid: linear-gradient(to right, #E5E7EB 1px, transparent 1px), 
+                     linear-gradient(to bottom, #E5E7EB 1px, transparent 1px);
+  --background-size-grid: 80px 80px;
+}
+
+
