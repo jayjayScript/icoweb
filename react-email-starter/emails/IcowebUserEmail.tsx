@@ -12,6 +12,7 @@ import {
 interface EmailProps {
     name: string;
     email: string;
+    whatsapp: string;
     service: string;
     message: string;
 }
@@ -74,7 +75,7 @@ const messageText = {
     textAlign: "left" as const,
 };
 
-export default function UserEmail({ name, email, service, message }: EmailProps) {
+export default function UserEmail({ name, email, whatsapp, service, message }: EmailProps) {
     return (
         <Html>
             <Head>
@@ -123,12 +124,12 @@ export default function UserEmail({ name, email, service, message }: EmailProps)
                     <Section>
                         <Img
                             src="https://res.cloudinary.com/dyrleuyj9/image/upload/v1761964331/ICOWEB_Logo_4_jn56hq.png" // 🔁 Replace with your logo URL
-                            width="250"
-                            height="80"
+                            width="100"
+                            height="31"
                             alt="Project Logo"
                             style={{ margin: "0 auto 20px auto", backgroundColor: "#544BC2", padding: "10px", borderRadius: "10px" }}
                         />
-                        <Text style={headerText}>New Contact Form Submission</Text>
+                        <Text style={headerText}>Client Inquiry</Text>
                     </Section>
 
                     <Section style={infoSection}>
@@ -139,6 +140,9 @@ export default function UserEmail({ name, email, service, message }: EmailProps)
                             </Text>
                             <Text style={infoItem}>
                                 <strong style={infoLabel}>Email:</strong> {email}
+                            </Text>
+                            <Text style={infoItem}>
+                                <strong style={infoLabel}>WhatsApp Number:</strong> {whatsapp}
                             </Text>
                             <Text style={infoItem}>
                                 <strong style={infoLabel}>Service:</strong> {service}

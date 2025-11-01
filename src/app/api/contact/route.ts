@@ -12,12 +12,13 @@ export async function POST(request: Request) {
     const body = await request.json();
     console.log('Received data:', body);
 
-    const { name, email, service, message } = body;
+    const { name, email, whatsapp, service, message } = body;
 
     const html = await render(
       UserEmail({ 
         name, 
         email, 
+        whatsapp,
         service, 
         message 
       })

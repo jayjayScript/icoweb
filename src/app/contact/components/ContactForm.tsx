@@ -7,6 +7,7 @@ export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    whatsapp: '',
     service: '',
     message: ''
   });
@@ -62,7 +63,7 @@ export default function ContactForm() {
 
     if (response.ok) {
       showToast('success', 'Message sent successfully! We\'ll get back to you soon.');
-      setFormData({ name: '', email: '', service: '', message: '' });
+      setFormData({ name: '', email: '', whatsapp: '', service: '', message: '' });
     } else {
       console.error(result);
       showToast('error', result.error || 'Failed to send message. Please try again.');
@@ -154,6 +155,23 @@ export default function ContactForm() {
               id="email"
               name="email"
               value={formData.email}
+              onChange={handleChange}
+              className="w-full px-4 py-3 bg-gray-50 border-none rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all"
+              required
+              disabled={isSubmitting}
+            />
+          </div>
+
+          {/* WhatsApp Number */}
+          <div>
+            <label htmlFor="email" className="block text-sm text-gray-700 mb-2">
+              WhatsApp Number
+            </label>
+            <input
+              type="whatsapp"
+              id="whatsapp"
+              name="whatsapp"
+              value={formData.whatsapp}
               onChange={handleChange}
               className="w-full px-4 py-3 bg-gray-50 border-none rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all"
               required
