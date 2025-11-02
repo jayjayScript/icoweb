@@ -145,8 +145,8 @@ const WorkDetails = ({ params }: { params: { slug: string } }) => {
                 <div
                   key={imgIndex}
                   className={`flex-shrink-0 ${desktopImagesArray.length === 1
-                      ? 'w-full'
-                      : 'w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] lg:w-[calc(25%-24px)]'
+                    ? 'w-full'
+                    : 'w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] lg:w-[calc(25%-24px)]'
                     }`}
                 >
                   <Image
@@ -185,58 +185,58 @@ const WorkDetails = ({ params }: { params: { slug: string } }) => {
 
         {
           project.slug === 'votixcare' ? <div className="my-16 sm:my-20 md:my-24">
-          <h3 className="text-[22px] sm:text-[28px] md:text-[36px] lg:text-[48px] font-medium">Desktop Screens</h3>
-          <div className="relative w-full bg-[#DEDBDB] rounded-[2.14px] p-4 sm:p-6 ">
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-8 lg:gap-10 overflow-x-auto">
-              {desktopImagesArray.map((img, imgIndex) => (
-                <div
-                  key={imgIndex}
-                  className={`flex-shrink-0 ${desktopImagesArray.length === 1
+            <h3 className="text-[22px] sm:text-[28px] md:text-[36px] lg:text-[48px] font-medium">Desktop Screens</h3>
+            <div className="relative w-full bg-[#DEDBDB] rounded-[2.14px] p-4 sm:p-6 ">
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-8 lg:gap-10 overflow-x-auto">
+                {desktopImagesArray.map((img, imgIndex) => (
+                  <div
+                    key={imgIndex}
+                    className={`flex-shrink-0 ${desktopImagesArray.length === 1
                       ? 'w-full'
                       : 'w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] lg:w-[calc(25%-24px)]'
-                    }`}
-                >
-                  <Image
-                    src={img}
-                    alt={`${title} desktop view ${imgIndex + 1}`}
-                    className="w-full h-auto rounded-[6px] sm:rounded-[7.5px] md:rounded-[20px] lg:rounded-[28px] object-cover shadow-lg"
-                  />
-                </div>
-              ))}
+                      }`}
+                  >
+                    <Image
+                      src={img}
+                      alt={`${title} desktop view ${imgIndex + 1}`}
+                      className="w-full h-auto rounded-[6px] sm:rounded-[7.5px] md:rounded-[20px] lg:rounded-[28px] object-cover shadow-lg"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        </div> :  
-        <div className="my-16 sm:my-20 md:my-24">
-          <h3 className="text-[22px] sm:text-[28px] md:text-[36px] lg:text-[48px] font-medium mb-4 sm:mb-5 md:mb-6">Mobile Screens</h3>
-          <div className="overflow-hidden relative w-full h-[250px] sm:h-[400px] md:h-[550px] lg:h-[608px] rounded-[2.14px] flex items-center justify-center bg-[#DEDBDB]">
-            <div className="grid grid-cols-4 gap-2 sm:gap-3 w-full h-full p-4">
-              {details.mobileImages.map((img, imgIndex) => (
-                <div key={imgIndex} className="sticky w-full h-full rounded-md overflow-hidden">
-                  <Image
-                    src={img}
-                    alt={`${title} mobile view ${imgIndex + 1}`}
-                    fill
-                    className="object-cover rounded-md scale-92 md:scale-130"
-                  />
+          </div> :
+            <div className="my-16 sm:my-20 md:my-24">
+              <h3 className="text-[22px] sm:text-[28px] md:text-[36px] lg:text-[48px] font-medium mb-4 sm:mb-5 md:mb-6">Mobile Screens</h3>
+              <div className="overflow-hidden relative w-full h-[250px] sm:h-[400px] md:h-[550px] lg:h-[608px] rounded-[2.14px] flex items-center justify-center bg-[#DEDBDB]">
+                <div className="grid grid-cols-4 gap-2 sm:gap-3 w-full h-full p-4">
+                  {details.mobileImages.map((img, imgIndex) => (
+                    <div key={imgIndex} className="sticky w-full h-full rounded-md overflow-hidden">
+                      <Image
+                        src={img}
+                        alt={`${title} mobile view ${imgIndex + 1}`}
+                        fill
+                        className="object-cover rounded-md scale-92 md:scale-130"
+                      />
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
+              </div>
 
-        </div>
+            </div>
         }
-       
-        
+
+
 
         {/* TESTIMONIAL */}
         <div className="max-w-full sm:max-w-4xl md:max-w-5xl mx-auto space-y-4 sm:space-y-6 md:flex md:items-center md:justify-between md:gap-12 lg:gap-20">
-          <div className="bg-black md:w-[1800px] h-full rounded-lg flex items-center justify-center overflow-hidden shadow-[#544BC224] shadow-[0_0_15px_#544BC215,0_4px_20px_#544BC220] p-6">
+          <div className={` ${project.slug === "perfection-reloaded" ? "bg-black" : "bg-transparent"} md:w-[1800px] h-full rounded-lg flex items-center justify-center overflow-hidden shadow-[#544BC224]  p-6`}>
             <Image
               src={details.testimonial.image}
               alt={details.testimonial.name}
               width={403}
               height={547}
-              className="object-contain max-w-[343px] sm:max-w-[380px] md:max-w-[340px] h-[400px] sm:h-[450px] md:h-[480px] lg:h-[500px]  rounded-lg"
+              className="object-contain max-w-[343px] sm:max-w-[380px] md:max-w-[340px] h-[400px] sm:h-[450px] md:h-[480px] lg:h-[500px] rounded-lg"
               quality={100}
               sizes="(max-width: 768px) 90vw, 403px"
             />

@@ -9,23 +9,23 @@ import { navLinks } from "./constant";
 const Footer = () => {
 
   const socials = [
-              {
-                icon: "basil:instagram-solid",
-                link: "https://www.instagram.com/icowebagency?igsh=eXd6eGd2dzFwbnM4&utm_source=qr"
-              },
-              {
-                icon: "garden:twitter-fill-16",
-                link: "https://x.com/icowebagency"
-              },
-              {
-                icon: "ph:linkedin-logo-fill",
-                link: "https://www.linkedin.com/company/icowebagencyn/"
-              },
-              {
-                icon: "streamline:facebook-1-solid",
-                link: "https://www.facebook.com/share/171W8SGDCT/?mibextid=wwXIfr"
-              }
-            ]
+    {
+      icon: "basil:instagram-solid",
+      link: "https://www.instagram.com/icowebagency?igsh=eXd6eGd2dzFwbnM4&utm_source=qr"
+    },
+    {
+      icon: "garden:twitter-fill-16",
+      link: "https://x.com/icowebagency"
+    },
+    {
+      icon: "ph:linkedin-logo-fill",
+      link: "https://www.linkedin.com/company/icowebagencyn/"
+    },
+    {
+      icon: "streamline:facebook-1-solid",
+      link: "https://www.facebook.com/share/171W8SGDCT/?mibextid=wwXIfr"
+    }
+  ]
 
   return (
     <footer className="relative bg-[#544BC2] text-white overflow-hidden mt-16 sm:mt-20 md:mt-24">
@@ -35,21 +35,27 @@ const Footer = () => {
           {/* Logo + Brand */}
           <div className="flex items-center gap-2 mb-5 sm:mb-6">
             <div className="w-full">
-              <Image src={logo} width={42} height={26} alt="logo" className="w-[100px]" unoptimized/>
+              <Image src={logo} width={42} height={26} alt="logo" className="w-[100px]" unoptimized />
             </div>
           </div>
 
           {/* Contact Info */}
           <div className="space-y-2 text-[14px] sm:text-[15px] md:text-base font-normal">
             <p>
-              <span className="font-bold">Address:</span> Okahia Estate, East West Road, Port Harcourt, Rivers, Nigeria.
+              <span className="font-bold">Email:</span>{' '}
+              <a href="mailto:icowebagency@gmail.com" className="hover:underline">
+                icowebagency@gmail.com
+              </a>
             </p>
             <p>
-              <span className="font-bold">Email:</span> icowebagency@gmail.com
-            </p>
-            <p>
-              <span className="font-bold">Phone:</span> +2347030850395 | +2348183819437
-
+              <span className="font-bold">Phone:</span>{' '}
+              <a href="tel:+2347030850395" className="hover:underline">
+                +2347030850395
+              </a>
+              {' | '}
+              <a href="tel:+2348183819437" className="hover:underline">
+                +2348183819437
+              </a>
             </p>
           </div>
 
