@@ -58,7 +58,7 @@ export const navLinks = [
     link: "http://blog.icowebagency.com"
   },
   {
-    name: "Catalogue",
+    name: "Catalog",
     link: "/catalogue"
   },
   {

@@ -9,10 +9,6 @@ const Cards = () => {
         visible: { opacity: 1, scale: 1, transition: { duration: 0.6 } }
     }
 
-    const hoverVariant = {
-        hover: { y: -10, boxShadow: '0 20px 40px rgba(0,0,0,0.15)', transition: { duration: 0.3 } }
-    }
-
     return (
         <div>
             <section className='md:max-w-[95%] lg:max-w-[90%] mx-auto relative top-[70px] min-h-[50vh] md:min-h-[60vh] lg:h-[80vh]'>

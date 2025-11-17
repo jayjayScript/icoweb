@@ -4,11 +4,33 @@ import { Check, Star } from 'lucide-react';
 import { catalogData } from '@/components/constant';
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
+
+// Types
+interface Package {
+  name: string;
+  subtitle?: string;
+  popular?: boolean;
+  features: string[];
+}
+
+interface CatalogSection {
+  packages: Package[];
+}
+
+interface CatalogData {
+  sections: {
+    [key: string]: CatalogSection;
+  };
+  process: {
+    title: string;
+    steps: string[];
+  };
+}
 
 export default function FullCatalog() {
   const [activeTab, setActiveTab] = useState('MOBILE APP DEVELOPMENT');
-  const sections = Object.keys(catalogData.sections);
+  const sections = Object.keys((catalogData as CatalogData).sections);
   const tabRefs = useRef<{ [key: string]: HTMLButtonElement | null }>({});
 
   // Smooth scroll with offset
@@ -141,7 +163,7 @@ export default function FullCatalog() {
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3 }}
               >
-                {catalogData.sections[section].packages.map((pkg: any, idx: number) => (
+                {(catalogData as CatalogData).sections[section].packages.map((pkg: Package, idx: number) => (
                   <motion.div
                     key={idx}
                     className={`relative rounded-2xl p-6 transition-all duration-300 ${pkg.popular
@@ -213,11 +235,11 @@ export default function FullCatalog() {
             viewport={{ once: true, amount: 0.3 }}
           >
             <motion.h2 className="text-2xl font-bold mb-8" style={{ color: '#1f2937' }} variants={sectionVariant}>
-              {catalogData.process.title}
+              {(catalogData as CatalogData).process.title}
             </motion.h2>
 
             <motion.ol className="space-y-4 max-w-3xl mx-auto" variants={cardContainer}>
-              {catalogData.process.steps.map((step: string, idx: number) => (
+              {(catalogData as CatalogData).process.steps.map((step: string, idx: number) => (
                 <motion.li
                   key={idx}
                   className="flex items-start gap-4 p-5 bg-white rounded-xl shadow-md border-l-4"

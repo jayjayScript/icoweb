@@ -3,9 +3,9 @@
 import ResponsiveHeader from '@/components/ResponsiveHeader'
 import { features } from '@/components/constant'
 import { Icon } from '@iconify/react'
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 20, scale: 0.98 },
   visible: (i: number) => ({
     opacity: 1,
@@ -34,7 +34,7 @@ const WhyUs = () => {
             <motion.div
               key={index}
               className='col-span-2 bg-[#F7F7F7] rounded-[16px] py-[20px] px-4 text-left border-[0.8px] border-[#E9E9E9]'
-              variants={fadeUp as any}
+              variants={fadeUp}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
