@@ -58,6 +58,10 @@ export const navLinks = [
     link: "http://blog.icowebagency.com"
   },
   {
+    name: "Catalogue",
+    link: "/catalogue"
+  },
+  {
     name: "Contact",
     link: "/contact"
   }
@@ -102,7 +106,7 @@ export const serviceData = [
   {
     number: "05.",
     question: "Technical Support & Maintenance",
-    answer: "We don't just build and disappear. Our ongoing maintenance ensures your digital products remain secure, optimized, and evolving with your business needs and technology trends.",
+    answer: "We don't just build and disappear. Our ongoing maintenance ensures your digital products remain secure, optimized, and evolves with your business needs and technology trends.",
     images: [perfectionScreen4,ride2,wakamobile4,beepexMobile2], // 4 mobile images
     layout: "mobile" as const
   },
@@ -290,17 +294,16 @@ export const theTeam = [
     bio: "Eze transforms designs into responsive, engaging user interfaces that captivate and convert. His meticulous attention to detail and commitment to pixel-perfect implementation ensure our websites and applications look stunning across all devices while delivering exceptional user experiences."
   },
   {
+    image: chineme,
+    name: "Okpala Chineme",
+    role: "Mobile Developer",
+    bio: "Chineme specializes in creating intuitive, high-performance mobile applications that users love. With a deep understanding of both iOS and Android platforms, he builds cross-platform solutions that maintain native quality while streamlining development and maintenance."
+  },
+  {
     image: sonia,
     name: "Sonia Kajotoni",
     role: "Mobile Developer Intern",
     bio: "Sonia brings fresh perspectives to our mobile development team as part of our talent development initiative. Working alongside our senior developers, she's gaining hands-on experience while contributing to innovative mobile solutions for our clients—embodying our commitment to fostering Nigeria's next generation of tech talent.",
-    intern: "Intern"
-  },
-  {
-    image: princewill,
-    name: "Princewill Jeremiah",
-    role: "Frontend Engineer Intern",
-    bio: "Jay represents our commitment to nurturing tomorrow's tech talent. As the developer behind this very website, he demonstrates how we empower emerging professionals to contribute meaningfully to real-world projects while developing their skills under expert mentorship.",
     intern: "Intern"
   },
   {
@@ -311,10 +314,11 @@ export const theTeam = [
     intern: "Intern"
   },
   {
-    image: chineme,
-    name: "Okpala Chineme",
-    role: "Mobile Developer",
-    bio: "Chineme specializes in creating intuitive, high-performance mobile applications that users love. With a deep understanding of both iOS and Android platforms, he builds cross-platform solutions that maintain native quality while streamlining development and maintenance."
+    image: princewill,
+    name: "Princewill Jeremiah",
+    role: "Frontend Engineer Intern",
+    bio: "Jay represents our commitment to nurturing tomorrow's tech talent. As the developer behind this very website, he demonstrates how we empower emerging professionals to contribute meaningfully to real-world projects while developing their skills under expert mentorship.",
+    intern: "Intern"
   },
 ]
 
@@ -523,3 +527,340 @@ export const Cards = [
     },
   },
 ]
+
+
+// data/catalog.ts
+export interface Package {
+  name: string;
+  price: string;
+  subtitle: string;
+  features: string[];
+  popular: boolean;
+}
+
+export interface Section {
+  description: string;
+  packages: Package[];
+}
+
+export interface CatalogData {
+  title: string;
+  subtitle: string;
+  website: string;
+  sections: Record<string, Section>;
+  process: {
+    title: string;
+    steps: string[];
+  };
+  featuredProjects: {
+    title: string;
+    projects: Array<{
+      name: string;
+      subtitle: string;
+      description: string;
+    }>;
+  };
+  paymentTerms: {
+    title: string;
+    terms: string[];
+  };
+  referralProgram: {
+    title: string;
+    details: string[];
+  };
+  contact: {
+    title: string;
+    email: string;
+    phone: string;
+    address: string;
+  };
+}
+
+export const catalogData: CatalogData = {
+  title: "ICOWEB Digital Agency Service Catalog",
+  subtitle: "Where Design Excellence Meets Technical Precision",
+  website: "www.icowebagency.com",
+  sections: {
+    "MOBILE APP DEVELOPMENT": {
+      description: "",
+      packages: [
+        {
+          name: "Basic App Package",
+          price: "₦3,900,000+",
+          subtitle: "Perfect for startups and small businesses",
+          features: [
+            "Up to 8 screens with intuitive navigation",
+            "User authentication (email/password)",
+            "Platform-specific UI components",
+            "Integration with 1 simple API",
+            "Basic analytics implementation",
+            "App Store and Google Play deployment",
+            "2 revision rounds",
+            "Timeline: 17 weeks excluding weekends",
+            "30 days post-launch technical support"
+          ],
+          popular: false
+        },
+        {
+          name: "Standard App Package",
+          price: "₦7,800,000+",
+          subtitle: "Ideal for established businesses",
+          features: [
+            "Up to 15 screens with custom UI components",
+            "Advanced authentication (social logins)",
+            "Integration with up to 3 third-party services",
+            "Payment gateway integration",
+            "Push notification system",
+            "Simple landing page website",
+            "Basic admin dashboard",
+            "Timeline: 26 weeks excluding weekends",
+            "30 days post-launch support"
+          ],
+          popular: true
+        },
+        {
+          name: "Enterprise App Package",
+          price: "₦15,600,000+",
+          subtitle: "For complex business solutions",
+          features: [
+            "Unlimited screens with premium UI/UX",
+            "Complex authentication and role management",
+            "Multiple payment gateway integrations",
+            "Real-time features (such as chat and tracking)",
+            "Multi-language support",
+            "Professional marketing website",
+            "Comprehensive admin dashboard with analytics",
+            "Timeline: 39 weeks excluding weekends",
+            "60 days of support with optional maintenance"
+          ],
+          popular: false
+        }
+      ]
+    },
+    "WEBSITE DEVELOPMENT": {
+      description: "",
+      packages: [
+        {
+          name: "Basic WordPress Website",
+          price: "₦936,000+",
+          subtitle: "For small businesses and professionals",
+          features: [
+            "WordPress installation and configuration",
+            "Premium theme customization",
+            "Up to 5 pages of content",
+            "Mobile responsive design",
+            "Contact form",
+            "Social media links",
+            "Basic SEO setup",
+            "Timeline: 1-4 weeks",
+            "10 days post-launch support"
+          ],
+          popular: false
+        },
+        {
+          name: "Standard Website Package",
+          price: "₦1,872,000+",
+          subtitle: "For growing businesses",
+          features: [
+            "WordPress or a custom Next.js website",
+            "Up to 10 pages with content management",
+            "WordPress Blog/news section",
+            "Newsletter signup - MailChimp",
+            "Contact forms - MailChimp",
+            "Gallery or portfolio section",
+            "SEO implementation",
+            "Google Analytics (optional)",
+            "Timeline: 3-8 weeks",
+            "30 days post-launch support"
+          ],
+          popular: true
+        },
+        {
+          name: "E-commerce/Custom Website",
+          price: "₦4,680,000+",
+          subtitle: "For online stores and custom web applications",
+          features: [
+            "Fully custom design and development",
+            "E-commerce functionality or custom features",
+            "Product management system",
+            "Payment gateway integration",
+            "User accounts and dashboards",
+            "Admin control panel",
+            "SEO optimization",
+            "Timeline: 6-12 weeks",
+            "30 days post-launch support"
+          ],
+          popular: false
+        }
+      ]
+    },
+    "UI/UX DESIGN SERVICES": {
+      description: "",
+      packages: [
+        {
+          name: "Interface Audit",
+          price: "₦546,000+",
+          subtitle: "",
+          features: [
+            "UX evaluation of existing design",
+            "Usability assessment report",
+            "Improvement recommendations",
+            "One consultation session",
+            "Timeline: 1 week"
+          ],
+          popular: false
+        },
+        {
+          name: "Design System Creation",
+          price: "₦2,340,000+",
+          subtitle: "",
+          features: [
+            "Brand identity integration",
+            "Component library",
+            "Style guide documentation",
+            "Responsive design patterns",
+            "Timeline: 2-7 weeks"
+          ],
+          popular: true
+        },
+        {
+          name: "Full Product Design",
+          price: "₦3,900,000+",
+          subtitle: "",
+          features: [
+            "User research and persona development",
+            "User journey mapping",
+            "Wireframing and prototyping",
+            "High-fidelity UI design",
+            "Developer handoff documentation",
+            "Timeline: 6-10 weeks"
+          ],
+          popular: false
+        }
+      ]
+    },
+    "TECHNICAL SERVICES": {
+      description: "",
+      packages: [
+        {
+          name: "Bug Fixing Package",
+          price: "₦468,000-₦1,560,000",
+          subtitle: "",
+          features: [
+            "Diagnostic assessment",
+            "Issue prioritization",
+            "Code fixes and testing",
+            "Solution documentation",
+            "Timeline: 1-3 weeks (based on complexity)"
+          ],
+          popular: false
+        },
+        {
+          name: "Performance Optimization",
+          price: "₦1,248,000+",
+          subtitle: "",
+          features: [
+            "Performance audit",
+            "Load time improvement",
+            "Code refactoring",
+            "Database optimization",
+            "Before/after metrics report",
+            "Timeline: 1-4 weeks"
+          ],
+          popular: false
+        },
+        {
+          name: "Maintenance Contracts - Basic",
+          price: "₦234,000/month",
+          subtitle: "",
+          features: [
+            "Up to 5 hours of technical support",
+            "Critical bug fixes",
+            "Security updates",
+            "Monthly performance check"
+          ],
+          popular: true
+        },
+        {
+          name: "Maintenance Contracts - Standard",
+          price: "₦468,000/month",
+          subtitle: "",
+          features: [
+            "Up to 10 hours of technical support",
+            "Bug fixes and minor updates",
+            "Security monitoring",
+            "Content updates",
+            "Bi-weekly performance check"
+          ],
+          popular: true
+        },
+        {
+          name: "Maintenance Contracts - Premium",
+          price: "₦936,000/month",
+          subtitle: "",
+          features: [
+            "Up to 15 hours of technical support",
+            "Priority response (within 8 business hours)",
+            "Bug fixes and feature enhancements",
+            "Security monitoring",
+            "Regular content updates",
+            "Weekly performance check"
+          ],
+          popular: false
+        }
+      ]
+    }
+  },
+  process: {
+    title: "OUR PROCESS",
+    steps: [
+      "1. Discovery - Understanding your business needs and goals",
+      "2. Design - Creating intuitive, visually appealing interfaces",
+      "3. Development - Building robust solutions with clean code",
+      "4. Testing - Thorough quality assurance across devices",
+      "5. Deployment - Smooth launch and implementation",
+      "6. Support - Ongoing assistance and maintenance"
+    ]
+  },
+  featuredProjects: {
+    title: "FEATURED PROJECTS",
+    projects: [
+      {
+        name: "Beepex",
+        subtitle: "Financial Services Mobile Application",
+        description: "Gift card trading platform with secure wallet"
+      },
+      {
+        name: "Wakajugbe",
+        subtitle: "Ride-hailing Platform",
+        description: "Dual apps for riders and drivers with real-time tracking"
+      },
+      {
+        name: "VotixCare",
+        subtitle: "Healthcare Management System",
+        description: "Patient management and appointment scheduling system"
+      }
+    ]
+  },
+  paymentTerms: {
+    title: "PAYMENT TERMS",
+    terms: [
+      "40% deposit upon project commencement",
+      "30% at the agreed mid-project milestone",
+      "30% before final delivery and launch"
+    ]
+  },
+  referralProgram: {
+    title: "REFERRAL PROGRAM",
+    details: [
+      "10% commission on the first project value",
+      "Payment within 30 days of the client's final payment"
+    ]
+  },
+  contact: {
+    title: "Contact us today to discuss your project requirements",
+    email: "icowebagency@gmail.com",
+    phone: "+234 703 085 0395",
+    address: "Okahia Estate, East West Road, Port Harcourt, Rivers, Nigeria."
+  }
+};

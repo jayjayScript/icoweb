@@ -5,7 +5,20 @@ import { testimonials } from '@/components/constant'
 import { Icon } from '@iconify/react'
 import Image from 'next/image'
 import useEmblaCarousel from 'embla-carousel-react'
+import { motion } from "framer-motion"
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.12,
+      duration: 0.6,
+      ease: "easeOut",
+    }
+  })
+}
 
 const Testomonials = () => {
   const [emblaRef] = useEmblaCarousel({
@@ -14,9 +27,9 @@ const Testomonials = () => {
     containScroll: 'trimSnaps',
   })
 
-
   return (
     <section className="px-4 sm:px-6 md:px-2 py-6 md:max-w-[90%] mx-auto mt-[2rem]">
+      {/* Header */}
       <div className='px-2'>
         <ResponsiveHeader
           title="Testimonials"
@@ -25,16 +38,19 @@ const Testomonials = () => {
         />
       </div>
 
-      {/* ✅ Mobile & Tablet Carousel */}
+      {/* MOBILE CAROUSEL */}
       <div className="block lg:hidden my-8 sm:my-10">
-        {/* Viewport */}
         <div className="overflow-hidden" ref={emblaRef}>
-          {/* Container */}
           <div className="flex gap-3 sm:gap-4 pl-4 sm:pl-6 pr-6 sm:pr-8">
             {testimonials.map((testimonial, index) => (
-              <div
+              <motion.div
                 key={index}
                 className="flex-[0_0_90%] sm:flex-[0_0_85%] md:flex-[0_0_70%] bg-[#F7F7F7] rounded-[16px] p-4 sm:p-5 md:p-6 text-left border-[0.8px] border-[#E9E9E9]"
+                variants={fadeUp as any}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={index}
               >
                 {/* Header */}
                 <div className="flex items-start justify-between mb-3 sm:mb-4">
@@ -74,18 +90,23 @@ const Testomonials = () => {
                 <p className="text-[13px] sm:text-sm md:text-[15px] text-[#707070] font-medium leading-relaxed">
                   {testimonial.text}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* ✅ Desktop Grid */}
+      {/* DESKTOP GRID */}
       <div className="hidden lg:grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-5 xl:gap-6 my-10 lg:my-12 xl:my-14">
         {testimonials.map((testimonial, index) => (
-          <div
+          <motion.div
             key={index}
             className="bg-[#F7F7F7] rounded-[16px] p-6 lg:p-7 xl:p-[32px] text-left border border-[#E9E9E9]"
+            variants={fadeUp as any}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={index}
           >
             <div className="flex items-start justify-between mb-4">
               <div className="flex items-center gap-3 w-full">
@@ -119,14 +140,15 @@ const Testomonials = () => {
                 </div>
               </div>
             </div>
+
             <p className="text-sm lg:text-[15px] text-[#707070] font-medium leading-relaxed">
               {testimonial.text}
             </p>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
   )
 }
 
-export default Testomonials 
+export default Testomonials

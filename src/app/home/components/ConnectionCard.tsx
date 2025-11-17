@@ -1,20 +1,90 @@
+"use client"
 import Image from 'next/image'
 import React from 'react'
+import { motion } from 'framer-motion'
 import cardImg from '@/assets/image.png'
 import desktopCard from '@/assets/desktop-img.png'
 import Link from 'next/link'
 
 const ConnectionCard = () => {
+    // Animation variants
+    const containerVariants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.8,
+                ease: [0.22, 1, 0.36, 1],
+                staggerChildren: 0.2,
+                delayChildren: 0.3
+            }
+        }
+    }
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 30 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.6,
+                ease: [0.22, 1, 0.36, 1]
+            }
+        }
+    }
+
+    const imageVariants = {
+        hidden: { opacity: 0, scale: 0.9 },
+        visible: {
+            opacity: 1,
+            scale: 1,
+            transition: {
+                duration: 0.8,
+                ease: [0.22, 1, 0.36, 1],
+                delay: 0.4
+            }
+        }
+    }
+
+    const buttonVariants = {
+        hover: {
+            scale: 1.05,
+            y: -2,
+            transition: {
+                duration: 0.3,
+                ease: "easeOut"
+            }
+        },
+        tap: { scale: 0.95 }
+    }
+
+    const gridVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                duration: 1.2,
+                ease: "easeOut"
+            }
+        }
+    }
+
     return (
         <div>
             <div className='relative md:max-w-[85%] mx-auto mt-26'>
                 {/* Grid Background with Image Container */}
-                <div
+                <motion.div
                     className="relative w-[343px] md:w-full mx-auto bg-[#F7F7F7] rounded-[24px] overflow-hidden"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.3 }}
+                    variants={containerVariants as any}
                 >
                     {/* Grid Gradient Background */}
-                    <div
+                    <motion.div
                         className="absolute inset-0 pointer-events-none"
+                        variants={gridVariants as any}
                         style={{
                             backgroundImage: `
                 linear-gradient(to right, #E5E7EB6E 1.5px, transparent 1px),
@@ -30,22 +100,60 @@ const ConnectionCard = () => {
                         }}
                     />
 
-                    <div className='relative z-50 top-8 md:top-18 px-8 py-6'>
-                        <h3 className='text-[22px] md:text-[36px] font-semibold leading-[33px] text-[#121212] text-center'>Let&apos;s Build Something Great Together</h3>
-                        <p className='text-[#707070] text-[14px] md:text-[16px] font-medium text-center my-2 md:my-6 lg:w-[40%] mx-auto'>From websites to apps, our team is ready to turn your ideas into high-performing digital products.</p>
-                        <Link href="/contact" className='flex justify-center mt-6'>
-                            <button className="bg-white hover:bg-[#544BC2] hover:text-[#FFF] transition duration-300 ease-in-out text-[#544BC2] px-6 py-3 rounded-full font-medium border border-[#9991FF] hover:border-gray-400 shadow-inner shadow-[#9A98B033] hover:shadow-[#9991FF] cursor-pointer">
-                                Work with us
-                            </button>
-                        </Link>
-                    </div>
+                    <motion.div 
+                        className='relative z-50 top-8 md:top-18 px-8 py-6'
+                        variants={itemVariants as any}
+                    >
+                        <motion.h3 
+                            className='text-[22px] md:text-[36px] font-semibold leading-[33px] text-[#121212] text-center'
+                            variants={itemVariants as any}
+                        >
+                            Let&apos;s Build Something Great Together
+                        </motion.h3>
+                        
+                        <motion.p 
+                            className='text-[#707070] text-[14px] md:text-[16px] font-medium text-center my-2 md:my-6 lg:w-[40%] mx-auto'
+                            variants={itemVariants as any}
+                        >
+                            From websites to apps, our team is ready to turn your ideas into high-performing digital products.
+                        </motion.p>
+                        
+                        <motion.div
+                            variants={itemVariants as any}
+                        >
+                            <Link href="/contact" className='flex justify-center mt-6'>
+                                <motion.button 
+                                    className="bg-white hover:bg-[#544BC2] hover:text-[#FFF] transition duration-300 ease-in-out text-[#544BC2] px-6 py-3 rounded-full font-medium border border-[#9991FF] hover:border-gray-400 shadow-inner shadow-[#9A98B033] hover:shadow-[#9991FF] cursor-pointer"
+                                    variants={buttonVariants as any}
+                                    whileHover="hover"
+                                    whileTap="tap"
+                                >
+                                    Work with us
+                                </motion.button>
+                            </Link>
+                        </motion.div>
+                    </motion.div>
 
                     {/* Purple Wave Image */}
-                    <div className='relative'>
-                        <Image src={cardImg} alt='image' className='w-full md:hidden' />
-                        <Image src={desktopCard} alt='image' className='w-full hidden md:block' />
-                    </div>
-                </div>
+                    <motion.div 
+                        className='relative'
+                        variants={imageVariants as any}
+                    >
+                        <motion.div
+                            initial={{ y: 20, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ 
+                                duration: 0.8, 
+                                ease: [0.22, 1, 0.36, 1],
+                                delay: 0.5
+                            }}
+                        >
+                            <Image src={cardImg} alt='image' className='w-full md:hidden' />
+                            <Image src={desktopCard} alt='image' className='w-full hidden md:block' />
+                        </motion.div>
+                    </motion.div>
+                </motion.div>
             </div>
         </div>
     )

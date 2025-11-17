@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/* globals.css */
+html {
+  scroll-behavior: smooth;   /* fallback for anchor links */
+}
+/* * {
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+} */
+
 :root {
   --step-x: 7%;
   --step-y: 80px;
@@ -25,4 +34,22 @@
   --background-size-grid: 80px 80px;
 }
 
+
+/* app/globals.css  (or wherever your global CSS lives) */
+html {
+  scroll-behavior: smooth;          /* native smooth-scroll for #links */
+}
+
+/* Force GPU on heavy sections */
+.framer-motion-container,
+.bg-fixed,
+img,
+video {
+  will-change: transform;
+}
+
+/* Optional: limit repaint on large background images */
+.bg-image {
+  transform: translateZ(0);
+}
 
