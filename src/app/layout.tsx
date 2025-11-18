@@ -4,7 +4,6 @@ import Navbar from "@/components/Navbar";
 import { Manrope } from "next/font/google";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
-import ScrollProvider from "./ScrollProvider";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -28,11 +27,11 @@ export default function RootLayout({
         className={`${manrope.className} antialiased relative`}
       >
         <Navbar />
-        <ScrollProvider>
+        
           {children}
           <ScrollToTop />
           <Footer />
-        </ScrollProvider>
+        
       </body>
     </html>
   );
